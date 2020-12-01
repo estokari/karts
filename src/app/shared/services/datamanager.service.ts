@@ -6,9 +6,7 @@ import Classification from '../../../data/classification.json';
 })
 export class DatamanagerService {
 
-  constructor() { 
-    
-  }
+  constructor() {}
 
   async getWholeData(){
     return Classification;
@@ -19,7 +17,6 @@ export class DatamanagerService {
     const whole = this.getWholeData();
     let result = [];
 
-    //console.log(whole);
     await whole.then(res => {
       
       for (const key in res) {
@@ -42,6 +39,26 @@ export class DatamanagerService {
 
     return result;
 
+  }
+
+  async getRiderById(id){
+
+    const whole = this.getWholeData();
+
+    let rider = {};
+
+    await whole.then(res => {
+
+      let result = res.filter(obj => {
+        return obj._id === id
+      })
+
+      rider = result[0];
+
+    });
+
+    return rider;
+    
   }
 
 }

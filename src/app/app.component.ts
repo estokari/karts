@@ -19,14 +19,23 @@ export class AppComponent implements OnInit{
 
     this.datamanagerService.getPositionsByRace(0).then(data => {
       console.log(data);
+
+      for (const key in data) {
+
+        if (Object.prototype.hasOwnProperty.call(data, key)) {
+          const element = data[key];
+
+          this.datamanagerService.getRiderById(element.id_rider).then(data => {
+
+            console.log(data);
+            
+
+          });
+          
+        }
+      }
+
     });
 
-    this.datamanagerService.getPositionsByRace(1).then(data => {
-      console.log(data);
-    })
-
-    this.datamanagerService.getPositionsByRace(8).then(data => {
-      console.log(data);
-    })
   }
 }
