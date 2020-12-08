@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatamanagerService } from './shared/services/datamanager.service';
 import { RaceComponent } from './components/race/race.component';
+import { ChampionshipComponent } from './components/championship/championship.component';
 
 
 @Component({
