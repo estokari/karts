@@ -34,7 +34,6 @@ export class DatamanagerService {
       }
 
       result.sort((a, b) => (a.timeInSeconds > b.timeInSeconds) ? 1 : -1);
-      
     });
 
     return result;
@@ -61,15 +60,34 @@ export class DatamanagerService {
     
   }
 
+  async getMainClassification(){
+
+    return await this.getWholeData().then(res => {
+
+      let riders = res.map((rider) => {
+
+        let time = 0;
+        
+        rider.races.forEach(element => {
+          time += this.getSeconds(element.time);
+        });
+
+        return {
+          rider : rider,
+          score : time
+        };
+      });
+
+      return riders.sort((a, b) => (a.score > b.score) ? 1 : -1);
+    })
+  }
+
   getSeconds(timeStr){
 
     let time = timeStr.split(':');
-
-
     let seconds = parseInt(time[0]) * 3600 + parseInt(time[1]) * 60 + parseFloat(time[2]);
 
     return seconds;
-
   }
 
 }

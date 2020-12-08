@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatamanagerService } from './shared/services/datamanager.service';
+import { RaceComponent } from './components/race/race.component';
+import { ChampionshipComponent } from './components/championship/championship.component';
 
 
 @Component({
@@ -15,27 +17,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void { 
-
-
-    this.datamanagerService.getPositionsByRace(0).then(data => {
-      console.log(data);
-
-      for (const key in data) {
-
-        if (Object.prototype.hasOwnProperty.call(data, key)) {
-          const element = data[key];
-
-          this.datamanagerService.getRiderById(element.id_rider).then(data => {
-
-            console.log(data);
-            
-
-          });
-          
-        }
-      }
-
-    });
 
   }
 }
