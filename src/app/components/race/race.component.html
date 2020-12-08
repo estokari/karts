@@ -1,0 +1,10 @@
+
+<h1>Carrera {{numRace}}</h1>
+
+<table class="table">
+    <tr *ngFor="let rider of raceData; index as i">
+        <td>#{{i + 1}}</td>
+        <td>{{rider.rider}}</td>
+        <td>{{rider.timestring}}</td>
+    </tr>
+</table>
