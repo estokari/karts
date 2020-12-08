@@ -1,4 +1,5 @@
-<div class="container">
+<h1 class="text-center my-4">World Kart Championship</h1>
+<div class="container is-rider">
     <nav class="navbar navbar-light bg-light my-2">
         <a href="/" class="btn btn-sm btn-outline-secondary">
             <i class="fa fa-angle-left"></i>
@@ -9,11 +10,11 @@
         <div class="card-header">
             Datos Personales
         </div>
-        <div class="card-body d-flex">
+        <div class="card-body rider-bio">
             <div>
-                <img src="{{rider.picture}}" alt="">
+                <img src="{{rider.picture}}" alt="{{rider.name}}" class="img-fluid">
             </div>
-            <div class="pl-4">
+            <div>
                 <h1 class="card-title">{{rider.name}}</h1>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Edad: </strong>{{rider.age}} años</li>

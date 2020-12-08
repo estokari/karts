@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     config.interval = 6000;
     config.keyboard = true;
     config.pauseOnHover = true;
+    config.showNavigationArrows = false;
   }
 
   ngOnInit(): void {
