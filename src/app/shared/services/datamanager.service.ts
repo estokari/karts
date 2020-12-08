@@ -14,30 +14,21 @@ export class DatamanagerService {
 
   async getPositionsByRace(race){
 
-    const whole = this.getWholeData();
-    let result = [];
+    return await this.getWholeData().then(res => {
 
-    await whole.then(res => {
+
+      let riders = res.map((rider) => {
+
+        return {
+          rider : rider,
+          timestring: rider.races[race].time,
+          score : this.getSeconds(rider.races[race].time)
+        };
+      });
+
+      return riders.sort((a, b) => (a.score > b.score) ? 1 : -1);
       
-      for (const key in res) {
-        if (Object.prototype.hasOwnProperty.call(res, key)) {
-          const element = res[key];
-
-          result.push({
-            id_rider: element._id,
-            rider: element.name,
-            timestring: element.races[race].time,
-            timeInSeconds: this.getSeconds(element.races[race].time)
-          });
-          
-        }
-      }
-
-      result.sort((a, b) => (a.timeInSeconds > b.timeInSeconds) ? 1 : -1);
     });
-
-    return result;
-
   }
 
   async getRiderById(id){

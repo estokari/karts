@@ -11,7 +11,7 @@
     </thead>
     <tr *ngFor="let rider of raceData; index as i">
         <td>{{i + 1}}</td>
-        <td>{{rider.rider}}</td>
+        <td>{{rider.rider.name}}</td>
         <td>{{rider.timestring}}</td>
         <td><a href="#" class="btn btn-primary">Ver ficha</a></td>
     </tr>
