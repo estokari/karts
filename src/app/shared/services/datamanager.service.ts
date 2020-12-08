@@ -26,7 +26,16 @@ export class DatamanagerService {
         };
       });
 
-      return riders.sort((a, b) => (a.score > b.score) ? 1 : -1);
+      let ridersSorted = riders.sort((a, b) => (a.score > b.score) ? 1 : -1);
+
+       
+
+      return ridersSorted.map((rider, index) => {
+        return {
+          rider: rider,
+          position: (index + 1)
+        }
+      });
       
     });
   }
@@ -71,6 +80,25 @@ export class DatamanagerService {
 
       return riders.sort((a, b) => (a.score > b.score) ? 1 : -1);
     })
+  }
+
+  async getRiderPositionInRace(rider, race){
+
+    //let pos:any;
+
+    return await this.getPositionsByRace(race).then(res => {
+
+      let result = res.filter(obj => {
+        return obj.rider.rider._id === rider
+      });
+
+      //console.log(r);
+      return result[0].position
+      
+
+
+    })
+    
   }
 
   getSeconds(timeStr){

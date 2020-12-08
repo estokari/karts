@@ -1,18 +1,31 @@
-
-<h1>Carrera {{numRace}}</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Piloto</th>
-            <th>Tiempo</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let rider of raceData; index as i">
-        <td>{{i + 1}}</td>
-        <td>{{rider.rider.name}}</td>
-        <td>{{rider.timestring}}</td>
-        <td><a href="#" class="btn btn-primary">Ver ficha</a></td>
-    </tr>
-</table>
+<div class="card my-4">
+    <div class="card-header">
+        Carrera {{numRace}}
+    </div>
+    <div class="card-body d-flex">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Imagen</th>
+                        <th>Piloto</th>
+                        <th>Equipo</th>
+                        <th>Tiempo</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rider of raceData; index as i">
+                        <td>{{i + 1}}</td>
+                        <td><img src="{{rider.rider.rider.picture}}"></td>
+                        <td>{{rider.rider.rider.name}}</td>
+                        <td>{{rider.rider.rider.team}}</td>
+                        <td>{{rider.rider.timestring}}</td>
+                        <td><a href="/rider/{{rider.rider.rider._id}}" class="btn btn-outline-primary btn-sm">Ver ficha</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
