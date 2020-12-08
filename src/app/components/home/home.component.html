@@ -1,56 +1,91 @@
 <div class="container">
-    <ngb-carousel>
-        <ng-template ngbSlide>
+    <nav class="navbar navbar-light bg-light my-2">
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Selecciona un resultado</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem (click)="goToSlide('slide1')">Clasificación general</button>
+                <button ngbDropdownItem (click)="goToSlide('slide2')">Carrera 1</button>
+                <button ngbDropdownItem (click)="goToSlide('slide3')">Carrera 2</button>
+                <button ngbDropdownItem (click)="goToSlide('slide4')">Carrera 3</button>
+                <button ngbDropdownItem (click)="goToSlide('slide5')">Carrera 4</button>
+                <button ngbDropdownItem (click)="goToSlide('slide6')">Carrera 5</button>
+                <button ngbDropdownItem (click)="goToSlide('slide7')">Carrera 6</button>
+                <button ngbDropdownItem (click)="goToSlide('slide8')">Carrera 7</button>
+                <button ngbDropdownItem (click)="goToSlide('slide9')">Carrera 8</button>
+                <button ngbDropdownItem (click)="goToSlide('slide10')">Carrera 9</button>
+                <button ngbDropdownItem (click)="goToSlide('slide11')">Carrera 10</button>
+            </div>
+        </div>
+        <div>
+            <button type="button" (click)="stopSlider()" class="btn btn-outline-secondary mx-1" [ngClass]="{'btn-outline-danger': stop === true}">
+                <i class="fa fa-square"></i>
+            </button>
+            <button type="button" (click)="playSlider()" class="btn btn-outline-secondary mx-1" [ngClass]="{'btn-outline-success': play === true}">
+                <i class="fa fa-play"></i>
+            </button>
+        </div>
+
+        <div>
+            <button type="button" (click)="prevSlider()" class="btn btn-outline-secondary mx-1">
+                <i class="fa fa-angle-left"></i>
+            </button>
+            <button type="button" (click)="nextSlider()" class="btn btn-outline-secondary mx-1">
+                <i class="fa fa-angle-right"></i>
+            </button>
+        </div>
+    </nav>
+    <ngb-carousel #scores class="my-2">
+        <ng-template ngbSlide id="slide1">
           <div class="wrapper">
             <app-championship></app-championship>
           </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide2">
           <div class="wrapper">
             <app-race numRace="1"></app-race>
           </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide3">
           <div class="wrapper">
             <app-race numRace="2"></app-race>
           </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide4">
             <div class="wrapper">
             <app-race numRace="3"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide5">
             <div class="wrapper">
             <app-race numRace="4"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide6">
             <div class="wrapper">
                 <app-race numRace="5"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide7">
             <div class="wrapper">
                 <app-race numRace="6"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide8">
             <div class="wrapper">
                 <app-race numRace="7"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide9">
             <div class="wrapper">
                 <app-race numRace="8"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide10">
             <div class="wrapper">
                 <app-race numRace="9"></app-race>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
+        <ng-template ngbSlide id="slide11">
             <div class="wrapper">
                 <app-race numRace="10"></app-race>
             </div>

@@ -8,7 +8,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>Imagen</th>
                         <th>Piloto</th>
+                        <th>Equipo</th>
                         <th>Tiempo</th>
                         <th>&nbsp;</th>
                     </tr>
@@ -16,7 +18,9 @@
                 <tbody>
                     <tr *ngFor="let rider of raceData; index as i">
                         <td>{{i + 1}}</td>
+                        <td><img src="{{rider.rider.rider.picture}}"></td>
                         <td>{{rider.rider.rider.name}}</td>
+                        <td>{{rider.rider.rider.team}}</td>
                         <td>{{rider.rider.timestring}}</td>
                         <td><a href="/rider/{{rider.rider.rider._id}}" class="btn btn-outline-primary btn-sm">Ver ficha</a></td>
                     </tr>
