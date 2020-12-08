@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { RaceComponent } from './components/race/race.component';
 import { ChampionshipComponent } from './components/championship/championship.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { ChampionshipComponent } from './components/championship/championship.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
