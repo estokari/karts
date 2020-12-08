@@ -17,20 +17,28 @@ export class RiderComponent implements OnInit {
   ngOnInit(): void {
 
     const self = this;
+    let idRider = this.route.snapshot.params['id'];
 
     this.datamanagerService.getRiderById(this.route.snapshot.params['id']).then(res => {
 
       self.rider = res;
       self.rider.picture = self.rider.picture.replace('64x64','256x256');
-      let rs = self.rider.races.map((races) => {
+      let rs = self.rider.races.map((race, index) => {
+
         return {
-          timestring: races.time,
-          score: this.datamanagerService.getSeconds(races.time)
+          timestring: race.time,
+          score: this.datamanagerService.getSeconds(race.time),
         }
       });
 
       self.rider.best = rs.sort((a, b) => (a.score > b.score) ? 1 : -1)[0].timestring;    
-      console.log(self.rider.best);
+
+      self.rider.races.map((race, index) => {
+
+        this.datamanagerService.getRiderPositionInRace(idRider, index).then((data) => {
+            self.rider.races[index]['position'] = data; 
+        })
+      })      
       
     });
   }

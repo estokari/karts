@@ -9,13 +9,15 @@ import { ChampionshipComponent } from './components/championship/championship.co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RiderComponent } from './components/rider/rider.component';
 import { routing } from './app.routing';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RaceComponent,
     ChampionshipComponent,
-    RiderComponent
+    RiderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
