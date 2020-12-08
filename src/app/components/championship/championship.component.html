@@ -1,0 +1,29 @@
+<div class="card my-4">
+    <div class="card-header">
+        Clasificación General
+    </div>
+    <div class="card-body d-flex">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Imagen</th>
+                        <th>Piloto</th>
+                        <th>Equipo</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rider of classification; index as i">
+                        <td>{{i + 1}}</td>
+                        <td><img src="{{rider.rider.picture}}"></td>
+                        <td>{{rider.rider.name}}</td>
+                        <td>{{rider.rider.team}}</td>
+                        <td><a href="/rider/{{rider.rider._id}}" class="btn btn-outline-primary btn-sm">Ver ficha</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
