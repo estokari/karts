@@ -27,13 +27,13 @@ export class DatamanagerService {
             id_rider: element._id,
             rider: element.name,
             timestring: element.races[race].time,
-            timeStamp: Date.parse("Wed Jun 20 " + element.races[0].time + " +0000 2020")
+            timeInSeconds: this.getSeconds(element.races[race].time)
           });
           
         }
       }
 
-      result.sort((a, b) => parseFloat(a.timeStamp) - parseFloat(b.timeStamp));      
+      result.sort((a, b) => (a.timeInSeconds > b.timeInSeconds) ? 1 : -1);
       
     });
 
@@ -59,6 +59,17 @@ export class DatamanagerService {
 
     return rider;
     
+  }
+
+  getSeconds(timeStr){
+
+    let time = timeStr.split(':');
+
+
+    let seconds = parseInt(time[0]) * 3600 + parseInt(time[1]) * 60 + parseFloat(time[2]);
+
+    return seconds;
+
   }
 
 }
